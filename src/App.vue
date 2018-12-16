@@ -1,11 +1,11 @@
 <template>
 <div>
-  <v-container mb-5>
+  <v-container>
     <v-layout row wrap >
       <v-flex text-md-center text-xs-center class="mb-3">
         <v-card flat>
           <v-card-text>
-            Hi there, I'm Stash
+            <strong>Hi there, I'm Stash</strong>
           </v-card-text>
         </v-card>
       </v-flex>
@@ -31,7 +31,7 @@
           <v-btn flat>PAGES</v-btn>
           <v-btn flat>POST FORMATS</v-btn>
           <v-btn icon>
-            <v-icon>search</v-icon>
+            <v-icon name="search"></v-icon>
           </v-btn>
           <v-toolbar-side-icon></v-toolbar-side-icon>
         </v-toolbar-items>
@@ -43,7 +43,7 @@
         <!-- left -->
           <v-flex md7 offset-md1 mr-2>
             <img src="/img/cafe.jpg" class="img-content">
-            <v-layout row pb-2>
+            <v-layout row mb-4>
               <v-flex md10 offset-md1>
                 <v-card class="card--flex-toolbar">
                   <v-toolbar card prominent >
@@ -75,14 +75,21 @@
                       <h2 style="margin-bottom: 15px;">Makeup Primers for Everyday Wear</h2>
                       
                       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum maiores modi quidem veniam, expedita quis laboriosam, ullam facere adipisci, iusto, voluptate sapiente corrupti asperiores rem nemo numquam fuga ab at. 
+                      <v-divider></v-divider>
+                      <div style="margin: 10px;">
+                          <v-icon name="message-circle" class="icon"></v-icon> 3 COMMENTS
+                          LOAD MORE
+                          Post share
+                          <v-icon name="share-2" class="icon"></v-icon>
+                      </div>
                   </v-card-text>
                 </v-card>
               </v-flex>
             </v-layout>
 
             <img src="/img/cafe.jpg" class="img-content">
-            <v-layout row pb-2>
-              <v-flex md10 offset-md1>
+            <v-layout row mb-3>
+              <v-flex md10 offset-md1 mb-5>
                 <v-card class="card--flex-toolbar">
                   <v-toolbar card prominent >
                     <img src="/img/profile.jpg" class="profile-content">
@@ -113,6 +120,13 @@
                       <h2 style="margin-bottom: 15px;">Makeup Primers for Everyday Wear</h2>
                       
                       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum maiores modi quidem veniam, expedita quis laboriosam, ullam facere adipisci, iusto, voluptate sapiente corrupti asperiores rem nemo numquam fuga ab at. 
+                      <v-divider></v-divider>
+                      <div style="margin: 10px;">
+                          <v-icon name="message-circle" class="icon"></v-icon> 3 COMMENTS
+                          LOAD MORE
+                          Post share
+                          <v-icon name="share-2" class="icon"></v-icon>
+                      </div>
                   </v-card-text>
                 </v-card>
               </v-flex>
@@ -120,9 +134,9 @@
           </v-flex>
     
 
-    <!-- right -->
-          <v-flex md3>
-            <div style="text-align: center;">
+          <!-- right -->
+          <v-flex md3 class="grey lighten-3" style="height: 100%;">
+            <div style="text-align: center; margin-top: 50px;">
               <p>About Me</p>
               <img src="/img/profile.jpg" alt="" class="profile"> 
               <p>
@@ -130,7 +144,7 @@
               </p>
               <v-spacer>Recent Posts</v-spacer> 
 
-              <v-list>
+              <v-list class="grey lighten-3">
                 <v-list-tile>
                   <v-list-tile-avatar>
                     <img src="/img/list1.jpg"  alt="">
@@ -145,7 +159,7 @@
                   </v-list-tile-content>
                 </v-list-tile>
               </v-list>
-              <v-list>
+              <v-list class="grey lighten-3">
                 <v-list-tile>
                   <v-list-tile-avatar>
                     <img src="/img/list2.jpg"  alt="">
@@ -160,7 +174,7 @@
                   </v-list-tile-content>
                 </v-list-tile>
               </v-list>
-              <v-list>
+              <v-list class="grey lighten-3">
                 <v-list-tile>
                   <v-list-tile-avatar>
                     <img src="/img/list3.jpg"  alt="">
@@ -175,8 +189,15 @@
                   </v-list-tile-content>
                 </v-list-tile>
               </v-list>
-              <v-spacer>Follow Me</v-spacer>
-              <v-spacer>Instagram</v-spacer>
+              <br>
+              <v-spacer>----------Follow Me----------</v-spacer>
+              <br>
+                <v-icon name="facebook" class="icon"></v-icon>
+                <v-icon name="twitter" class="icon"></v-icon>
+                <v-icon name="linkedin" class="icon"></v-icon>
+                <v-icon name="instagram" class="icon"></v-icon>
+              
+              <v-spacer>----------Instagram----------</v-spacer>
 
               <v-container fluid grid-list-xs>
               <v-layout row wrap>
@@ -196,23 +217,37 @@
               </v-layout>
             </v-container>
 
-            <v-spacer>Subscribe</v-spacer>
-            
-            <v-flex>
+            <v-spacer>----------Subscribe----------</v-spacer>
+            <br>
+
+            <v-flex xs10 offset-xs1>
               <v-text-field
                 label="Your Email Address"
                 solo
+                flat
               ></v-text-field>
               <v-btn
                 class="btn-subscribe"
+                dark
+                flat
               >
                 SIGN IN
               </v-btn>
             </v-flex>
             </div>
-            
           </v-flex>
     </v-layout>
+    <v-layout row>
+      <v-flex md4 offset-md4>
+        <v-pagination
+          v-model="page"
+          :length="4"
+          circle
+        ></v-pagination>
+      </v-flex>
+    </v-layout>
+
+    
     <!-- <div class="parent">
       <div class="child">
         <v-layout row wrap>
@@ -224,15 +259,59 @@
     </div> -->
   </v-container>
 
-  <v-footer mt-5>
+    <v-layout> 
+      <v-flex md1>
+        <img src="/img/1.jpeg" style="width: 100%;" >
+      </v-flex>
+      <v-flex md1>
+        <img src="/img/2.jpeg" alt="" style="width: 100%;" >
+      </v-flex>
+      <v-flex md1>
+        <img src="/img/3.jpeg" alt="" style="width: 100%;" >
+      </v-flex>
+      <v-flex md1>
+        <img src="/img/4.jpeg" alt="" style="width: 100%;" >
+      </v-flex>
+      <v-flex md1>
+        <img src="/img/1.jpeg" alt="" style="width: 100%;" >
+      </v-flex>
+      <v-flex md1>
+        <img src="/img/2.jpeg" alt="" style="width: 100%;" >
+      </v-flex>
+      <v-flex md1>
+        <img src="/img/3.jpeg" alt="" style="width: 100%;" >
+      </v-flex>
+      <v-flex md1>
+        <img src="/img/4.jpeg" alt="" style="width: 100%;" >
+      </v-flex>
+      <v-flex md1>
+        <img src="/img/1.jpeg" alt="" style="width: 100%;" >
+      </v-flex>
+      <v-flex md1>
+        <img src="/img/2.jpeg" alt="" style="width: 100%;" >
+      </v-flex>
+      <v-flex md1>
+        <img src="/img/3.jpeg" alt="" style="width: 100%;" >
+      </v-flex>
+      <v-flex md1>
+        <img src="/img/4.jpeg" alt="" style="width: 100%;" >
+      </v-flex>
+    </v-layout>
+
+    <v-layout row wrap>
     <v-card
       flat
-      tile
       width="100%"
       class="black white--text text-xs-center"
-    >
+    > 
+      <br>         
+      <h1>orgato</h1>
+
       <v-card-text>
-        <v-icon name="facebook"></v-icon>
+      <v-divider></v-divider>
+        <v-icon name="facebook" class="icon"></v-icon>
+        <v-icon name="twitter" class="icon"></v-icon>
+        <v-icon name="instagram" class="icon"></v-icon>
       </v-card-text>
 
       <v-card-text class="white--text pt-0">
@@ -244,15 +323,18 @@
           label="Your Email Address"
           solo
         ></v-text-field>
+        <!-- <v-btn small class="black white--text">SIGN UP</v-btn> -->
+        <v-divider></v-divider>
+        <v-btn outline fab color="white">
+          <v-icon name="arrow-up-circle" class="icon"></v-icon>
+        </v-btn>
       </v-flex>
-
       <v-divider></v-divider>
-
       <v-card-text class="white--text">
         &copy;2018 — Design Grid. All Rights Reserved.
       </v-card-text>
     </v-card>
-  </v-footer>
+    </v-layout>
 
 </div>
 </template>
@@ -266,7 +348,7 @@
   html body {
     margin: 0px;
     padding: 0px;
-    font-family: 'Courier New', Courier, monospace
+    font-family: 'Courier New', Courier, monospace;
   }
 
   .profile {
@@ -310,7 +392,7 @@
   }
 
   .icon {
-    width: 50px;
+    width: 20px;
   }
 </style>
 
